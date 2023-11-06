@@ -3,22 +3,28 @@ package org.example;
 import java.util.ArrayList;
 
 public class Warehouse {
-    private int id;
+    private int warehouseId;
     private String location;
-    private ArrayList<Product> products;
+    private ArrayList<Product> products = new ArrayList<>();
 
-    public Warehouse(int id, String location) {
-        this.id = id;
+    public Warehouse(String location){
         setLocation(location);
-        products = new ArrayList<>();
+    }
+    public Warehouse(int warehouseId, String location) {
+        setLocation(location);
     }
 
-    public int getId() {
-        return id;
+    public int getWarehouseId() {
+
+        return warehouseId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setWarehouseId(int warehouseId) {
+        if (warehouseId < 0){
+             throw new IllegalArgumentException("Warehouse ID cannot be negitive");
+        }
+
+        this.warehouseId = warehouseId;
     }
 
     public String getLocation() {
@@ -85,4 +91,12 @@ public class Warehouse {
         return -1;
     }
 
+    @Override
+    public String toString() {
+        return "Warehouse{" +
+                "warehouseId=" + warehouseId +
+                ", location='" + location + '\'' +
+                ", product count =" + products. size() +
+                '}';
+    }
 }
