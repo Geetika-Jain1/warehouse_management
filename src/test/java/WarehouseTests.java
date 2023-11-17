@@ -1,6 +1,6 @@
 import org.junit.Test;
-import org.example.Product;
-import org.example.Warehouse;
+import org.example.data_object.Product;
+import org.example.data_object.Warehouse;
 
 public class WarehouseTests {
 
@@ -29,7 +29,7 @@ public class WarehouseTests {
           warehouse.addProduct(product);
 
           assert warehouse.getAllProducts().size() == 1;
-          assert warehouse.getAllProducts().get(0).getProductId() == 1;
+          assert warehouse.getAllProducts().get(0).getId() == 1;
 
      }
 
@@ -48,7 +48,7 @@ public class WarehouseTests {
           warehouse.removeProductById(1);
 
           assert warehouse.getAllProducts().size() == 2;
-          assert warehouse.getAllProducts().get(0).getProductId() == 2;
+          assert warehouse.getAllProducts().get(0).getId() == 2;
      }
 
 }

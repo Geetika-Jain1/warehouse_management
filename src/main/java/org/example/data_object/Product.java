@@ -1,34 +1,32 @@
-package org.example;
+package org.example.data_object;
 
 
 
-public class Product {
-    private int productId;
-    private String productname;
+public class Product extends BaseDataObject{
+
+    private String productName;
     private int price; // TODO: Change to currency
     private String description;
 
-    public Product(int id, String productname, int price, String description) {
-        this.productId = id;
-        this.productname = productname;
+    public Product(String productName, int price, String description){
+        this.productName = productName;
         this.price = price;
         this.description = description;
+
     }
 
-    public int getProductId() {
-        return productId;
-    }
+    public Product(int id, String productName, int price, String description) {
+        this(productName, price, description );
+        setId(id);
 
-    public void setProductId(int productId) {
-        this.productId = productId;
     }
-
     public String getProductname() {
-        return productname;
+        return productName;
     }
 
-    public void setProductname(String productname) {
-        this.productname = productname;
+    public void setProductName(String productName) {
+
+        this.productName = productName;
     }
 
     public int getPrice() {
@@ -50,8 +48,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productId=" + productId +
-                ", productName='" + productname + '\'' +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
